@@ -80,8 +80,8 @@ install_lib(){
 	echo "Installing the library"
 	echo "--------------------------------------------------------"
 	meson install -C build --destdir "$dest_dir"
-	sudo install -D -m 655 -o root -t /usr/ ./build/binary/usr/local/* 
-
+	sudo cp -rf ./build/binary/usr/local/* /usr/
+	
 	echo "--------------------------------------------------------"
 	echo "For the changes to apply, please log out and then log back in."
 	echo "--------------------------------------------------------"
