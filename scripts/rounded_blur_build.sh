@@ -216,7 +216,7 @@ while true; do
             break
             ;;
 		-h|--help)
-			k=y
+			h=y
             help_doc
             shift
             break
