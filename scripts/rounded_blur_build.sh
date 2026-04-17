@@ -18,27 +18,20 @@ check_env(){
 			echo "< sudo pacman -R gnome-rounded-blur >"
 			echo "--------------------------------------------------------"
 		fi
-		OS_TYPE="arch"
 		sleep 5
 		exit 1
-	elif [[ "$OS_ID_TYPE" = "debian" ]] || [[ "$OS_LIKE_ID_TYPE" = "debian" ]]; then
-		OS_TYPE="debian"
-	elif [[ "$OS_ID_TYPE" = "fedora" ]] || [[ "$OS_LIKE_ID_TYPE" = "fedora" ]]; then
-		OS_TYPE="fedora"
-	else
-		OS_TYPE="unknown"
 	fi
 }
 
 install_git(){
 	if ! command -v git >/dev/null 2>&1
 	then
-		if [[ $OS_TYPE="debian" ]]; then
+		if [[ "$OS_ID_TYPE" = "debian" ]] || [[ "$OS_LIKE_ID_TYPE" = "debian" ]]; then
 			echo "--------------------------------------------------------"
 			echo "Installing git"
 			echo "--------------------------------------------------------"
 			sudo apt install git 
-		elif [[ $OS_TYPE="fedora" ]]; then
+		elif [[ "$OS_ID_TYPE" = "fedora" ]] || [[ "$OS_LIKE_ID_TYPE" = "fedora" ]]; then
 			echo "--------------------------------------------------------"
 			echo "Installing git"
 			echo "--------------------------------------------------------"
@@ -54,12 +47,12 @@ install_git(){
 }
 
 install_dep(){
-	if [[ "$OS_TYPE"="debian" ]]; then
+	if [[ "$OS_ID_TYPE" = "debian" ]] || [[ "$OS_LIKE_ID_TYPE" = "debian" ]]; then
 		echo "--------------------------------------------------------"
 		echo "Installing dependency"
 		echo "--------------------------------------------------------"
 		sudo apt install libglib2.0-dev build-essential libmutter-$DIFF_VALUE_2-dev gobject-introspection meson
-	elif [[ "$OS_TYPE"="fedora" ]]; then
+	elif [[ "$OS_ID_TYPE" = "fedora" ]] || [[ "$OS_LIKE_ID_TYPE" = "fedora" ]]; then
 		echo "--------------------------------------------------------"
 		echo "Installing dependency"
 		echo "--------------------------------------------------------"
@@ -97,7 +90,7 @@ install_lib(){
 uninstall_lib(){
 	check_env
 	
-	if [[ "$OS_TYPE" = "debian" ]] || [[ "$OS_TYPE" = "fedora" ]]; then
+	if [[ "$OS_ID_TYPE" = "debian" ]] || [[ "$OS_LIKE_ID_TYPE" = "debian" ]] || [[ "$OS_ID_TYPE" = "fedora" ]] || [[ "$OS_LIKE_ID_TYPE" = "fedora" ]]; then
 		echo "--------------------------------------------------------"
 		echo "Uninstalling"
 		echo "--------------------------------------------------------"
