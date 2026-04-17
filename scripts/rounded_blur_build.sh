@@ -30,7 +30,7 @@ install_git(){
 			echo "--------------------------------------------------------"
 			echo "Installing git"
 			echo "--------------------------------------------------------"
-			sudo apt install git 
+			sudo apt -y install git 
 		elif [[ "$OS_ID_TYPE" = "fedora" ]] || [[ "$OS_LIKE_ID_TYPE" = "fedora" ]]; then
 			echo "--------------------------------------------------------"
 			echo "Installing git"
@@ -44,6 +44,17 @@ install_git(){
 			exit 1
 		fi
 	fi
+
+	# Ubuntu doesn't have this installed for some reason.
+	if [[ "$OS_ID_TYPE" = "debian" ]] || [[ "$OS_LIKE_ID_TYPE" = "debian" ]]; then	
+		if ! command -v mutter >/dev/null 2>&1
+		then
+			echo "--------------------------------------------------------"
+			echo "Installing mutter"
+			echo "--------------------------------------------------------"
+			sudo apt -y install mutter
+		fi
+	fi
 }
 
 install_dep(){
@@ -51,7 +62,7 @@ install_dep(){
 		echo "--------------------------------------------------------"
 		echo "Installing dependency"
 		echo "--------------------------------------------------------"
-		sudo apt install libglib2.0-dev build-essential libmutter-$DIFF_VALUE_2-dev gobject-introspection meson
+		sudo apt -y install libglib2.0-dev build-essential libmutter-$DIFF_VALUE_2-dev gobject-introspection meson
 	elif [[ "$OS_ID_TYPE" = "fedora" ]] || [[ "$OS_LIKE_ID_TYPE" = "fedora" ]]; then
 		echo "--------------------------------------------------------"
 		echo "Installing dependency"
