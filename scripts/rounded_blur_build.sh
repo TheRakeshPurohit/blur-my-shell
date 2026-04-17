@@ -110,7 +110,7 @@ uninstall_lib(){
 			sudo rm /usr/lib64/girepository-1.0/Blur-1.0.typelib /usr/lib64/pkgconfig/blur-effect-1.0.pc /usr/lib64/libblur-effect-1.0.so /usr/lib64/libblur-effect-1.0.so.1 /usr/lib64/libblur-effect-1.0.so.1.0.0 /usr/share/gir-1.0/Blur-1.0.gir || true
 		elif [ -e /usr/lib/x86_64-linux-gnu/libblur-effect-1.0.so ]; then
 			sudo rm /usr/lib/x86_64-linux-gnu/girepository-1.0/Blur-1.0.typelib /usr/lib/x86_64-linux-gnu/pkgconfig/blur-effect-1.0.pc /usr/lib/x86_64-linux-gnu/libblur-effect-1.0.so /usr/lib/x86_64-linux-gnu/libblur-effect-1.0.so.1 /usr/lib/x86_64-linux-gnu/libblur-effect-1.0.so.1.0.0 /usr/share/gir-1.0/Blur-1.0.gir || true
-		elif [ -e /usr/lib/libblur-effect-1.0.so ];
+		elif [ -e /usr/lib/libblur-effect-1.0.so ]; then
 			sudo rm /usr/lib/girepository-1.0/Blur-1.0.typelib /usr/lib/pkgconfig/blur-effect-1.0.pc /usr/lib/libblur-effect-1.0.so /usr/lib/libblur-effect-1.0.so.1 /usr/lib/libblur-effect-1.0.so.1.0.0 /usr/share/gir-1.0/Blur-1.0.gir || true
 		else
 			echo "--------------------------------------------------------"
