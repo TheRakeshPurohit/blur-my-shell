@@ -33,12 +33,12 @@ check_env(){
 install_git(){
 	if ! command -v git >/dev/null 2>&1
 	then
-		if [[ "$OS_TYPE"="debian" ]]; then
+		if [[ $OS_TYPE="debian" ]]; then
 			echo "--------------------------------------------------------"
 			echo "Installing git"
 			echo "--------------------------------------------------------"
 			sudo apt install git 
-		elif [[ "$OS_TYPE"="fedora" ]]; then
+		elif [[ $OS_TYPE="fedora" ]]; then
 			echo "--------------------------------------------------------"
 			echo "Installing git"
 			echo "--------------------------------------------------------"
@@ -195,14 +195,14 @@ while true; do
             shift
             break
             ;;
-				-u|--uninstall)
-						u=y
+		-u|--uninstall)
+			u=y
             uninstall_lib
             shift
             break
             ;;
-				-h|--help)
-						k=y
+		-h|--help)
+			k=y
             help_doc
             shift
             break
