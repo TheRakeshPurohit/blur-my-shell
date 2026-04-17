@@ -88,7 +88,7 @@ install_lib(){
 	echo "--------------------------------------------------------"
 	meson install -C build --destdir "$dest_dir"
 	sudo install -D -m 655 -o root -t /usr/ ./build/binary/usr/local/* 
-	
+
 	echo "--------------------------------------------------------"
 	echo "For the changes to apply, please log out and then log back in."
 	echo "--------------------------------------------------------"
@@ -221,6 +221,7 @@ done
 # handle non-option arguments
 if [[ $# -ne 1 ]]; then
     echo "$0: A single input file is required."
+	help_doc
     exit 4
 fi
 
